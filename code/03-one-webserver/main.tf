@@ -1,11 +1,11 @@
 # Configure the AWS provider
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 }
 
 # Create a Security Group for an EC2 instance
 resource "aws_security_group" "instance" {
-  name = "terraform-example-instance"
+  name = "RestoSGEC2"
   
   ingress {
     from_port	  = 8080
@@ -27,9 +27,9 @@ resource "aws_instance" "example" {
 	      nohup busybox httpd -f -p 8080 &
 	      EOF
 			  
-  tags {
-    Name = "terraform-example"
-  }
+  #tags {
+   # Name = "terraform-example"
+  #}
 }
 
 # Output variable: Public IP address
